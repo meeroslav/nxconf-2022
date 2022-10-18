@@ -19,7 +19,5 @@ jobs:
         with:
           fetch-depth: 0
       - uses: bahmutov/npm-install@v1 # trigger an `npm install`
-      - run: npx nx build store --prod
-      - run: npx nx build api --prod
       - run: npx nx deploy store
       - run: npx nx deploy api --prod
