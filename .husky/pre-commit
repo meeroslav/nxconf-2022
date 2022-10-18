@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "Running update-scope-schema"
+npx nx g @bg-hoard/internal-plugin:update-scope-schema
+echo "Scope schemas updated"
