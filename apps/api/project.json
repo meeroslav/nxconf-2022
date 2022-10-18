@@ -40,7 +40,8 @@
             "cache-manager/package.json"
           ]
         }
-      }
+      },
+      "defaultConfiguration": "production"
     },
     "serve": {
       "executor": "@nrwl/js:node",

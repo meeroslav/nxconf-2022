@@ -19,5 +19,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: bahmutov/npm-install@v1 # trigger an `npm install`
-      - run: npx nx deploy store
-      - run: npx nx deploy api --prod
+      - uses: nrwl/nx-set-shas@v2
+        with:
+          main-branch-name: 'main' # remember to set this correctly
+      - run: npx nx affected --target=deploy
