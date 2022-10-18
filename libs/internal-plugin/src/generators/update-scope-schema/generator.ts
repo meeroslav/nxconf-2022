@@ -3,11 +3,13 @@ import {
   formatFiles,
   ProjectConfiguration,
   getProjects,
-  updateJson
+  updateJson,
+  updateProjectConfiguration
 } from '@nrwl/devkit';
 
 
 export default async function (tree: Tree) {
+  addScopeIfMissing(tree);
   const projects = getProjects(tree);
   const scopes = getScopes(projects);
   updateSchema(tree, scopes);
@@ -49,5 +51,16 @@ function updateSchema(tree, scopes: string[]) {
       label: s
     }));
     return json;
+  });
+}
+
+function addScopeIfMissing(tree: Tree) {
+  const projects = getProjects(tree);
+  projects.forEach((project, name) => {
+    if (!project.tags.some((tag) => tag.startsWith('scope:'))) {
+      const scope = name.split('-')[0];
+      project.tags.push(`scope:${scope}`);
+      updateProjectConfiguration(tree, name, project);
+    }
   });
 }

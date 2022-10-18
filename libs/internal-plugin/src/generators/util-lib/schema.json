@@ -23,12 +23,20 @@
         "type": "list",
         "items": [
           {
+            "value": "api",
+            "label": "api"
+          },
+          {
+            "value": "internal",
+            "label": "internal"
+          },
+          {
             "value": "store",
             "label": "store"
           },
           {
-            "value": "api",
-            "label": "api"
+            "value": "videos",
+            "label": "videos"
           },
           {
             "value": "shared",
