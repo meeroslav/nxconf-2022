@@ -15,6 +15,8 @@ describe('util-lib generator', () => {
   it('should run successfully', async () => {
     await generator(appTree, options);
     const config = readProjectConfiguration(appTree, 'store-util-test');
+    expect(config.tags).toEqual(['type:util', 'scope:store']);
+    console.log(config);
     expect(config).toBeDefined();
   });
 });
